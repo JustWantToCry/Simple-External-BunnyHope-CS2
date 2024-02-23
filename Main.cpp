@@ -21,9 +21,9 @@ int main()
 
         if (GetAsyncKeyState(VK_SPACE)) {
 
-            memWrite(dwForceJump, 65537);
+            memWrite(dwForceJump, 65537); //Down key
             std::this_thread::sleep_for(std::chrono::milliseconds(1));
-            memWrite(dwForceJump, 256);
+            memWrite(dwForceJump, 256); //Up key
 
 
         }
