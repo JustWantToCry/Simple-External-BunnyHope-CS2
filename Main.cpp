@@ -7,9 +7,9 @@
 int main()
 {
 
-    auto localPlayer = VARS::memRead<uintptr_t>(VARS::baseAddress + 0x1729348); //dwLocalPlayerPawn offset
-    auto dwForceJump = VARS::memRead<uintptr_t>(VARS::baseAddress + 0x17226E0); //dwForceJump offset
-    auto m_fFlags = VARS::memRead<uintptr_t>(localPlayer + 0x3D4);//C_BaseEntity m_fFlags offset
+    auto localPlayer = memRead<uintptr_t>(baseAddress + 0x1729348); //dwLocalPlayerPawn offset
+    auto dwForceJump = memRead<uintptr_t>(baseAddress + 0x17226E0); //dwForceJump offset
+    auto m_fFlags = memRead<uintptr_t>(localPlayer + 0x3D4);//C_BaseEntity m_fFlags offset
 
     while (true)
     {
@@ -19,11 +19,11 @@ int main()
             continue;
         }
 
-        if (GetAsyncKeyState(VK_SPACE) && m_fFlags & (1 << 0)) {
+        if (GetAsyncKeyState(VK_SPACE)) {
 
-            VARS::memWrite(dwForceJump, 65537);
+            memWrite(dwForceJump, 65537);
             std::this_thread::sleep_for(std::chrono::milliseconds(1));
-            VARS::memWrite(dwForceJump, 256);
+            memWrite(dwForceJump, 256);
 
 
         }
