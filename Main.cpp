@@ -9,8 +9,7 @@ int main()
 
     auto localPlayer = memRead<uintptr_t>(baseAddress + 0x1729348); //dwLocalPlayerPawn offset
     auto dwForceJump = memRead<uintptr_t>(baseAddress + 0x17226E0); //dwForceJump offset
-    auto m_fFlags = memRead<uintptr_t>(localPlayer + 0x3D4);//C_BaseEntity m_fFlags offset
-
+    
     while (true)
     {
 #pragma region BunnyHope
